@@ -1,3 +1,5 @@
+CKEDITOR.config.extraPlugins = 'balloonpanel,a11ychecker';
+
 CKEDITOR.on('dialogDefinition', function (ev) {
   // Take the dialog name and its definition from the event data.
   var dialogName = ev.data.name;

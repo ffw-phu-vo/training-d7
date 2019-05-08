@@ -9,3 +9,36 @@ function phu_wysiwyg_wysiwyg_editor_settings_alter(&$settings, $context) {
     $settings['customConfig'] = base_path() . drupal_get_path('module', 'phu_wysiwyg')  . '/js/custom-config.js';
   }
 }
+
+/**
+ * Implements hook_wysiwyg_plugin().
+ *
+ * @see hook_wysiwyg_plugin()
+ */
+function phu_wysiwyg_wysiwyg_plugin($editor, $version) {
+  // https://www.drupal.org/project/wysiwyg/issues/2379177#comment-10204075
+  switch ($editor) {
+    case 'ckeditor':
+      return array(
+        'balloonpanel' => array(
+          'path' => libraries_get_path('ckeditor') . '/plugins/balloonpanel',
+          'filename' => 'plugin.js',
+          'buttons' => array(
+            'Balloonpanel' => t('Balloonpanel'),
+          ),
+          'load' => TRUE,
+          'internal' => FALSE,
+        ),
+        'a11ychecker' => array(
+          'path' => libraries_get_path('ckeditor') . '/plugins/a11ychecker',
+          'filename' => 'plugin.js',
+          'buttons' => array(
+            'A11ychecker' => t('A11ychecker'),
+          ),
+          'load' => TRUE,
+          'internal' => FALSE,
+        ),
+      );
+      break;
+  }
+}
