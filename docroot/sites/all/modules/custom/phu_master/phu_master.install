@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function phu_master_install() {
+  $modules = array(
+    'devel',
+  );
+  module_enable($modules);
+}
+
+/**
+ * Enable Devel generate.
+ */
+function phu_master_update_7001() {
+  $modules = array(
+    'devel_generate',
+  );
+  module_enable($modules);
+}

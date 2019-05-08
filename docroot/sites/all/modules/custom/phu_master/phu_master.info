@@ -1,0 +1,4 @@
+name = Phu Master
+description = Module to handle update hooks. Replacement to installation profile.
+core = 7.x
+package = Custom
