@@ -1,0 +1,8 @@
+name = Phu Views
+description = Create custom field for views.
+core = 7.x
+package = Custom
+
+dependencies[] = node
+
+files[] = includes/views_handler_phu_total_comments_custom_field.inc
